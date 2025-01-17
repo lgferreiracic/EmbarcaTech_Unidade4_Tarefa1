@@ -132,6 +132,19 @@ void control_leds_and_buzzer(char key) {
         case '#':
             play_buzzer(BUZZER_PIN, 3350, 500); // Toca o buzzer a 3350 Hz por 500 ms
             break;
+        case '*':
+            gpio_put(GREEN_LED_PIN, 1);
+            sleep_ms(1000);
+            gpio_put(GREEN_LED_PIN, 0);
+
+            gpio_put(BLUE_LED_PIN, 1);
+            sleep_ms(1000);
+            gpio_put(BLUE_LED_PIN, 0);
+
+            gpio_put(RED_LED_PIN, 1);
+            sleep_ms(1000);
+            gpio_put(RED_LED_PIN, 0);
+            break;
         default:
             gpio_put(GREEN_LED_PIN, 0);
             gpio_put(BLUE_LED_PIN, 0);
