@@ -91,111 +91,20 @@ void play_buzzer(uint pin, uint frequency, uint duration_ms) {
 }
 
 
-void play_mi(){
-    play_buzzer(BUZZER_PIN,MI,300);
-    gpio_init(RED_LED_PIN);
-    gpio_set_dir(RED_LED_PIN, GPIO_OUT);
+void playMi(uint duration_ms){
     gpio_put(RED_LED_PIN, 1);
-    sleep_ms(100);
+    play_buzzer(BUZZER_PIN,MI,duration_ms);
     gpio_put(RED_LED_PIN, 0);
 }
 
-void play_la(){
-    play_buzzer(BUZZER_PIN,LA,300);
+
+void playFa(uint duration_ma){
+    gpio_put(GREEN_LED_PIN, 1);
     gpio_put(BLUE_LED_PIN, 1);
-    gpio_put(RED_LED_PIN, 1);
-    sleep_ms(100);
+    play_buzzer(BUZZER_PIN,FA,300);
+    gpio_put(GREEN_LED_PIN, 0);
     gpio_put(BLUE_LED_PIN, 0);
-    gpio_put(RED_LED_PIN, 0);
 }
-
-void play_tinkle_tinkle_little_star(){
-    play_buzzer(BUZZER_PIN, DO, 300); 
-    gpio_put(GREEN_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(GREEN_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, DO, 300); 
-    gpio_put(GREEN_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(GREEN_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, SOL, 300); 
-    gpio_put(GREEN_LED_PIN, 1); 
-    gpio_put(RED_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(GREEN_LED_PIN, 0); 
-    gpio_put(RED_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, SOL, 300); 
-    gpio_put(GREEN_LED_PIN, 1); 
-    gpio_put(RED_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(GREEN_LED_PIN, 0); 
-    gpio_put(RED_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, LA, 300); 
-    gpio_put(BLUE_LED_PIN, 1); 
-    gpio_put(RED_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(BLUE_LED_PIN, 0); 
-    gpio_put(RED_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, LA, 300); 
-    gpio_put(BLUE_LED_PIN, 1); 
-    gpio_put(RED_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(BLUE_LED_PIN, 0); 
-    gpio_put(RED_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, SOL, 300); 
-    gpio_put(GREEN_LED_PIN, 1); 
-    gpio_put(RED_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(GREEN_LED_PIN, 0); 
-    gpio_put(RED_LED_PIN, 0);
-
-    play_buzzer(BUZZER_PIN, FA, 300); 
-    gpio_put(GREEN_LED_PIN, 1); 
-    gpio_put(BLUE_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(GREEN_LED_PIN, 0); 
-    gpio_put(BLUE_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, FA, 300); 
-    gpio_put(GREEN_LED_PIN, 1); 
-    gpio_put(BLUE_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(GREEN_LED_PIN, 0); 
-    gpio_put(BLUE_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, MI, 300); 
-    gpio_put(BLUE_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(BLUE_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, MI, 300); 
-    gpio_put(BLUE_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(BLUE_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, RE, 300); 
-    gpio_put(BLUE_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(BLUE_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, RE, 300); 
-    gpio_put(BLUE_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(BLUE_LED_PIN, 0);
-    
-    play_buzzer(BUZZER_PIN, DO, 300); 
-    gpio_put(GREEN_LED_PIN, 1); 
-    sleep_ms(300); 
-    gpio_put(GREEN_LED_PIN, 0);
-}
-
-
 
 char scan_keypad() {
     for (int row = 0; row < ROWS; row++) {
@@ -248,14 +157,11 @@ void control_leds_and_buzzer(char key) {
             sleep_ms(1000);
             gpio_put(RED_LED_PIN, 0);
             break;
-        case '4':
-            play_mi();
-            break;
-        case '5':
-            play_la();
-            break;
         case '6':
-        play_tinkle_tinkle_little_star();
+            playMi(300);
+            break;
+        case '7':
+            playFa(300);
             break;
         default:
             gpio_put(GREEN_LED_PIN, 0);
