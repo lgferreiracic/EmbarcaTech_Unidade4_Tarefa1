@@ -27,6 +27,17 @@ const char key_map[ROWS][COLS] = {
     {'*', '0', '#', 'D'}
 };
 
+// Frequências das notas musicais (em Hz)
+enum NotasMusicais {
+    DO = 2640, // Dó
+    RE = 2970, // Ré
+    MI = 3300, // Mi
+    FA = 3520, // Fá
+    SOL = 3960, // Sol
+    LA = 4400, // Lá
+    SI = 4950  // Si
+};
+
 // Inicializa as linhas como saída e colunas como entrada
 void init_gpio() {
     for (int i = 0; i < ROWS; i++) {
@@ -82,7 +93,7 @@ void set_buzzer_frequency(uint pin, uint frequency) {
 void play_buzzer(uint pin, uint frequency, uint duration_ms) {
 
     set_buzzer_frequency(pin, frequency);   
-    pwm_set_gpio_level(pin, 2048);           
+    pwm_set_gpio_level(pin, 32768);           
     sleep_ms(duration_ms);                   
     pwm_set_gpio_level(pin, 0);              
 }
