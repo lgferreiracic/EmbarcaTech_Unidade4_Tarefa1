@@ -98,6 +98,34 @@ void play_buzzer(uint pin, uint frequency, uint duration_ms) {
     pwm_set_gpio_level(pin, 0);              
 }
 
+// Função para tocar a nota Dó
+void playDo(uint duration_ms) {
+    gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
+    play_buzzer(BUZZER_PIN, DO, duration_ms);
+    gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
+}
+
+// Função para tocar a nota Ré
+void playRe(uint duration_ms) {
+    gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
+    play_buzzer(BUZZER_PIN, RE, duration_ms);
+    gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
+}
+
+void playMi(uint duration_ms){
+    gpio_put(RED_LED_PIN, 1); //Acende LED vermelho
+    play_buzzer(BUZZER_PIN,MI,duration_ms);
+    gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
+}
+
+void playFa(uint duration_ms){
+    gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
+    gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
+    play_buzzer(BUZZER_PIN,FA,duration_ms);
+    gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
+    gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
+}
+
 // Verifica qual tecla foi pressionada
 char scan_keypad() {
     for (int row = 0; row < ROWS; row++) {
