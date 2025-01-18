@@ -112,6 +112,20 @@ void playRe(uint duration_ms) {
     gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
 }
 
+void playMi(uint duration_ms){
+    gpio_put(RED_LED_PIN, 1); //Acende LED vermelho
+    play_buzzer(BUZZER_PIN,MI,duration_ms);
+    gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
+}
+
+void playFa(uint duration_ms){
+    gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
+    gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
+    play_buzzer(BUZZER_PIN,FA,duration_ms);
+    gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
+    gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
+}
+
 // Verifica qual tecla foi pressionada
 char scan_keypad() {
     for (int row = 0; row < ROWS; row++) {
