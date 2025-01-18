@@ -152,6 +152,135 @@ void playSi(uint duration_ms) {
     gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
 }
 
+void tocarDoReMi(){
+    //Dó-Ré-Mi-Fá
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+
+    //Fá-Fá
+    playFa(200);
+    sleep_ms(300);
+    playFa(200);
+    sleep_ms(300);
+
+    //Dó-Ré-Dó-Ré
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+
+    //Ré-Ré
+    playRe(200);
+    sleep_ms(300);
+    playRe(200);
+    sleep_ms(300);
+
+
+    //Dó-Sol-Fa-Mi
+    playDo(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+
+    //Mi-Mi
+    playMi(200);
+    sleep_ms(300);
+    playMi(200);
+    sleep_ms(300);
+
+    //Dó-Ré-Mi-Fá
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+
+    //Fá-Fá
+    playFa(200);
+    sleep_ms(300);
+    playFa(200);
+    sleep_ms(300);
+}
+
+void tocarParabens() {
+    //DO-DO-RE-DO-SOL-FA-FA
+    playDo(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+
+    //DO-DO-RE-DO-SOL-FA
+    playDo(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+
+    //LA-LA-DO-LA-FA-MI-RE
+    playLa(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+
+    //SI-SI-LA-FA-SOL-FA
+    playSi(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+}
+
 // Verifica qual tecla foi pressionada
 char scan_keypad() {
     for (int row = 0; row < ROWS; row++) {
@@ -209,6 +338,26 @@ void control_leds_and_buzzer(char key) {
             gpio_put(RED_LED_PIN, 1);
             sleep_ms(1000);
             gpio_put(RED_LED_PIN, 0);
+            break;
+        case '1':
+            tocarDoReMi();
+            break;
+        case '2':
+            tocarParabens();
+            break;
+        case '3':
+            break;
+        case '4':
+            break;
+        case '5':
+            break;
+        case '6':
+            break;
+        case '7':
+            break;
+        case '8':
+            break;
+        case '9':
             break;
         default:
             gpio_put(GREEN_LED_PIN, 0);
