@@ -8,7 +8,7 @@
 #define BLUE_LED_PIN 12
 #define RED_LED_PIN 13
 
-// Definição da porta GPIO do BUZZER
+//Definição da porta GGPIO do BUZZER
 #define BUZZER_PIN 21
 
 // Define os GPIOs para as linhas e colunas do teclado matricial 4x4
@@ -26,7 +26,6 @@ const char key_map[ROWS][COLS] = {
     {'7', '8', '9', 'C'},
     {'*', '0', '#', 'D'}
 };
-
 
 // Frequências das notas musicais (em Hz)
 enum NotasMusicais {
@@ -56,6 +55,7 @@ void init_gpio() {
 
 // Inicializa LEDs e Buzzer
 void init_leds_and_buzzer() {
+    
     gpio_init(GREEN_LED_PIN);
     gpio_set_dir(GREEN_LED_PIN, GPIO_OUT);
     gpio_put(GREEN_LED_PIN, 0);
@@ -73,54 +73,79 @@ void init_leds_and_buzzer() {
     gpio_put(BUZZER_PIN, 0);
 }
 
+// Configura o PWM no pino do buzzer com uma frequência especificada
 void set_buzzer_frequency(uint pin, uint frequency) {
+    // Obter o slice do PWM associado ao pino
     uint slice_num = pwm_gpio_to_slice_num(pin);
+
+    // Configurar o pino como saída de PWM
     gpio_set_function(pin, GPIO_FUNC_PWM);
+
+    // Configurar o PWM com frequência desejada
     pwm_config config = pwm_get_default_config();
     pwm_config_set_clkdiv(&config, clock_get_hz(clk_sys) / (frequency * 4096)); // Calcula divisor do clock
+
     pwm_init(slice_num, &config, true);
     pwm_set_gpio_level(pin, 0); // Inicializa com duty cycle 0 (sem som)
 }
 
-
+// Função para tocar o buzzer por um tempo especificado (em milissegundos)
 void play_buzzer(uint pin, uint frequency, uint duration_ms) {
-    set_buzzer_frequency(pin, frequency);
-    pwm_set_gpio_level(pin, 2048);
-    sleep_ms(duration_ms);
-    pwm_set_gpio_level(pin, 0);
+
+    set_buzzer_frequency(pin, frequency);   
+    pwm_set_gpio_level(pin, 32768);           
+    sleep_ms(duration_ms);                   
+    pwm_set_gpio_level(pin, 0);              
 }
 
+// Função para tocar a nota Dó
+void playDo(uint duration_ms) {
+    gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
+    play_buzzer(BUZZER_PIN, DO, duration_ms);
+    gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
+}
+
+// Função para tocar a nota Ré
+void playRe(uint duration_ms) {
+    gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
+    play_buzzer(BUZZER_PIN, RE, duration_ms);
+    gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
+}
 
 void playMi(uint duration_ms){
-    gpio_put(RED_LED_PIN, 1);
+    gpio_put(RED_LED_PIN, 1); //Acende LED vermelho
     play_buzzer(BUZZER_PIN,MI,duration_ms);
-    gpio_put(RED_LED_PIN, 0);
+    gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
 }
-
 
 void playFa(uint duration_ms){
-    gpio_put(GREEN_LED_PIN, 1);
-    gpio_put(BLUE_LED_PIN, 1);
+    gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
+    gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
     play_buzzer(BUZZER_PIN,FA,duration_ms);
-    gpio_put(GREEN_LED_PIN, 0);
-    gpio_put(BLUE_LED_PIN, 0);
+    gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
+    gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
 }
 
+// Verifica qual tecla foi pressionada
 char scan_keypad() {
     for (int row = 0; row < ROWS; row++) {
-        gpio_put(row_pins[row], 0); 
+        gpio_put(row_pins[row], 0); // Configura a linha atual como LOW
+
         for (int col = 0; col < COLS; col++) {
-            if (gpio_get(col_pins[col]) == 0) {
+            if (gpio_get(col_pins[col]) == 0) { 
                 while (gpio_get(col_pins[col]) == 0); 
-                gpio_put(row_pins[row], 1);
+                gpio_put(row_pins[row], 1); 
                 return key_map[row][col];
             }
         }
-        gpio_put(row_pins[row], 1); 
+
+        gpio_put(row_pins[row], 1); // Restaura a linha para HIGH
     }
+
     return '\0'; 
 }
 
+// Função para controlar LEDs e Buzzer com base na tecla pressionada
 void control_leds_and_buzzer(char key) {
     switch (key) {
         case 'A':
@@ -150,18 +175,14 @@ void control_leds_and_buzzer(char key) {
             gpio_put(GREEN_LED_PIN, 1);
             sleep_ms(1000);
             gpio_put(GREEN_LED_PIN, 0);
+
             gpio_put(BLUE_LED_PIN, 1);
             sleep_ms(1000);
             gpio_put(BLUE_LED_PIN, 0);
+
             gpio_put(RED_LED_PIN, 1);
             sleep_ms(1000);
             gpio_put(RED_LED_PIN, 0);
-            break;
-        case '6':
-            playMi(300);
-            break;
-        case '7':
-            playFa(300);
             break;
         default:
             gpio_put(GREEN_LED_PIN, 0);
@@ -177,7 +198,7 @@ int main() {
     init_leds_and_buzzer();
 
     printf("Teclado Matricial 4x4 Controle de LEDs e Buzzer Iniciado.\n");
-    printf("A - Aciona LED verde\nB - Aciona LED azul\nC - Aciona LED vermelho\nD - Aciona todos os LEDs\n# - Aciona Buzzer\n2 - Toca Mi e Lá\n\n");
+    printf("A - Aciona LED verde\nB - Aciona LED azul\nC - Aciona LED vermelho\nD - Aciona todos os LEDs\n# - Aciona Buzzer\n\n");
 
     while (1) {
         char key = scan_keypad();
