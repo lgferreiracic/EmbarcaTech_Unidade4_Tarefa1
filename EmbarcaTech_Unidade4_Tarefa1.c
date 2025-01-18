@@ -98,10 +98,10 @@ void playMi(uint duration_ms){
 }
 
 
-void playFa(uint duration_ma){
+void playFa(uint duration_ms){
     gpio_put(GREEN_LED_PIN, 1);
     gpio_put(BLUE_LED_PIN, 1);
-    play_buzzer(BUZZER_PIN,FA,300);
+    play_buzzer(BUZZER_PIN,FA,duration_ms);
     gpio_put(GREEN_LED_PIN, 0);
     gpio_put(BLUE_LED_PIN, 0);
 }
