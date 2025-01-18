@@ -42,37 +42,35 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(EmbarcaTech_Unidade4_Tarefa1 C CXX ASM)
+project(Funcao_Si C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(EmbarcaTech_Unidade4_Tarefa1 EmbarcaTech_Unidade4_Tarefa1.c )
+add_executable(Funcao_Si Funcao_Si.c )
 
-pico_set_program_name(EmbarcaTech_Unidade4_Tarefa1 "EmbarcaTech_Unidade4_Tarefa1")
-pico_set_program_version(EmbarcaTech_Unidade4_Tarefa1 "0.1")
+pico_set_program_name(Funcao_Si "Funcao_Si")
+pico_set_program_version(Funcao_Si "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(EmbarcaTech_Unidade4_Tarefa1 0)
-pico_enable_stdio_usb(EmbarcaTech_Unidade4_Tarefa1 0)
+pico_enable_stdio_uart(Funcao_Si 0)
+pico_enable_stdio_usb(Funcao_Si 0)
 
 # Add the standard library to the build
-target_link_libraries(EmbarcaTech_Unidade4_Tarefa1
-        pico_stdlib
-        hardware_pwm 
-        hardware_clocks)
+target_link_libraries(Funcao_Si
+        pico_stdlib hardware_pwm)
 
 # Add the standard include files to the build
-target_include_directories(EmbarcaTech_Unidade4_Tarefa1 PRIVATE
+target_include_directories(Funcao_Si PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(EmbarcaTech_Unidade4_Tarefa1 
+target_link_libraries(Funcao_Si 
         
         )
 
-pico_add_extra_outputs(EmbarcaTech_Unidade4_Tarefa1)
+pico_add_extra_outputs(Funcao_Si)
 

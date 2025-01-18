@@ -98,34 +98,6 @@ void play_buzzer(uint pin, uint frequency, uint duration_ms) {
     pwm_set_gpio_level(pin, 0);              
 }
 
-// Função para tocar a nota Dó
-void playDo(uint duration_ms) {
-    gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
-    play_buzzer(BUZZER_PIN, DO, duration_ms);
-    gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
-}
-
-// Função para tocar a nota Ré
-void playRe(uint duration_ms) {
-    gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
-    play_buzzer(BUZZER_PIN, RE, duration_ms);
-    gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
-}
-
-void playMi(uint duration_ms){
-    gpio_put(RED_LED_PIN, 1); //Acende LED vermelho
-    play_buzzer(BUZZER_PIN,MI,duration_ms);
-    gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
-}
-
-void playFa(uint duration_ms){
-    gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
-    gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
-    play_buzzer(BUZZER_PIN,FA,duration_ms);
-    gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
-    gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
-}
-
 // Verifica qual tecla foi pressionada
 char scan_keypad() {
     for (int row = 0; row < ROWS; row++) {
@@ -192,6 +164,46 @@ void control_leds_and_buzzer(char key) {
     }
 }
 
+// Função para tocar a nota SI e executar o padrão de LEDs
+void play_note_and_led_pattern(char key) {
+    if (key == '9') {
+        // Tocar a nota SI (495 Hz) por 600 ms
+        play_buzzer(BUZZER_PIN, 4950, 600);
+
+        // Padrão de LEDs após a nota
+        printf("Executando padrão de LEDs.\n");
+
+        gpio_put(GREEN_LED_PIN, 1);
+        sleep_ms(500);
+        gpio_put(GREEN_LED_PIN, 0);
+
+        gpio_put(BLUE_LED_PIN, 1);
+        gpio_put(RED_LED_PIN, 1);
+        sleep_ms(200);
+        gpio_put(BLUE_LED_PIN, 0);
+        gpio_put(RED_LED_PIN, 0);
+
+        gpio_put(GREEN_LED_PIN, 1);
+        gpio_put(BLUE_LED_PIN, 1);
+        gpio_put(RED_LED_PIN, 1);
+        sleep_ms(300);
+        gpio_put(GREEN_LED_PIN, 0);
+        gpio_put(BLUE_LED_PIN, 0);
+        gpio_put(RED_LED_PIN, 0);
+
+        gpio_put(GREEN_LED_PIN, 1);
+        sleep_ms(250);
+        gpio_put(GREEN_LED_PIN, 0);
+
+        gpio_put(BLUE_LED_PIN, 1);
+        sleep_ms(250);
+        gpio_put(BLUE_LED_PIN, 0);
+
+        gpio_put(RED_LED_PIN, 1);
+        sleep_ms(100);
+        gpio_put(RED_LED_PIN, 0);
+    }
+}
 int main() {
     stdio_init_all();
     init_gpio();
@@ -204,6 +216,11 @@ int main() {
         char key = scan_keypad();
         if (key != '\0') {
             printf("Tecla pressionada: %c\n", key);
+
+            // Chama a nova função para a tecla '9'
+            play_note_and_led_pattern(key);
+
+            // Controle padrão para outras teclas
             control_leds_and_buzzer(key);
         }
         sleep_ms(100);

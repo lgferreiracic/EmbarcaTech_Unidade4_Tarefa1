@@ -1,4 +1,4 @@
 [wokwi]
 version = 1
-firmware = 'build/EmbarcaTech_Unidade4_Tarefa1.uf2'
-elf = 'build/EmbarcaTech_Unidade4_Tarefa1.elf'
+firmware = 'build\Funcao_Si.uf2'
+elf = 'build\Funcao_Si.elf'
