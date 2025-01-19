@@ -493,6 +493,80 @@ void tocarBorboletinha(){
     sleep_ms(400);
 }
 
+void tocarPirulitoQueBateBate(){
+    //Fa-Sol-La-La-La-Sol-Fa-Si-Si
+    playFa(200);
+    sleep_ms(100);
+    playSol(200);
+    sleep_ms(100);
+    playLa(200);
+    sleep_ms(100);
+    playLa(200);
+    sleep_ms(100);
+    playLa(200);
+    sleep_ms(200);
+    playSol(200);
+    sleep_ms(200);
+    playFa(200);
+    sleep_ms(200);
+    playSi(200);
+    sleep_ms(200);
+    playSi(200);
+    sleep_ms(400);
+
+    //Mi-Fa-Sol-Sol-Sol-Fa-Mi-La
+    playMi(200);
+    sleep_ms(100);
+    playFa(200);
+    sleep_ms(100);
+    playSol(200);
+    sleep_ms(100);  
+    playSol(200);
+    sleep_ms(200);
+    playSol(200);
+    sleep_ms(100);
+    playFa(200);
+    sleep_ms(200);
+    playMi(200);
+    sleep_ms(200);
+    playLa(200);
+    sleep_ms(400);
+
+    //Fa-Sol-La-La-La-Sol-Fa-Si-Re-Do-Si-La-Sol-Fa-Mi-Re
+    playFa(200);
+    sleep_ms(100);
+    playSol(200);   
+    sleep_ms(100);
+    playLa(200);
+    sleep_ms(100);
+    playLa(200);
+    sleep_ms(200);
+    playLa(200);
+    sleep_ms(100);
+    playSol(200);
+    sleep_ms(200);
+    playFa(200);
+    sleep_ms(200);
+    playSi(200);
+    sleep_ms(200);
+    playRe(200);
+    sleep_ms(200);
+    playDo(200);
+    sleep_ms(200);
+    playSi(200);
+    sleep_ms(200);
+    playLa(200);
+    sleep_ms(200);
+    playSol(200);
+    sleep_ms(200);
+    playFa(200);
+    sleep_ms(200);
+    playMi(200);
+    sleep_ms(200);
+    playRe(200);
+    sleep_ms(400);
+}
+
 // Verifica qual tecla foi pressionada
 char scan_keypad() {
     for (int row = 0; row < ROWS; row++) {
@@ -551,6 +625,11 @@ void control_leds_and_buzzer(char key) {
             sleep_ms(1000);
             gpio_put(RED_LED_PIN, 0);
             break;
+        case '0': //Desligar os LEDs
+            gpio_put(GREEN_LED_PIN, 0);
+            gpio_put(BLUE_LED_PIN, 0);
+            gpio_put(RED_LED_PIN, 0);
+            break;
         case '1':
             tocarDoReMi();
             break;
@@ -570,6 +649,7 @@ void control_leds_and_buzzer(char key) {
             tocarBorboletinha();
             break;
         case '8':
+            tocarPirulitoQueBateBate();
             break;
         case '9':
             break;
