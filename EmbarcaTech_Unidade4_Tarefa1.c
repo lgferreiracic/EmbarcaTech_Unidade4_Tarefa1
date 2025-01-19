@@ -1061,7 +1061,7 @@ void control_leds_and_buzzer(char key) {
             gpio_put(RED_LED_PIN, 1);
             break;
         case '#':
-            play_buzzer(BUZZER_PIN, 3350, 500); // Toca o buzzer a 3350 Hz por 500 ms
+            play_buzzer(BUZZER_PIN, 3350, 2000); // Toca o buzzer a 3350 Hz por 2000 ms
             break;
         case '0': //Desligar os LEDs
             gpio_put(GREEN_LED_PIN, 0);
@@ -1150,7 +1150,7 @@ int main() {
     init_leds_and_buzzer();
 
     printf("Teclado Matricial 4x4 Controle de LEDs e Buzzer Iniciado.\n");
-    printf("A - Aciona LED verde\nB - Aciona LED azul\nC - Aciona LED vermelho\nD - Aciona todos os LEDs\n# - Aciona Buzzer\nNumeros - Tocam músicas\n\n");
+    printf("A - Aciona LED verde\nB - Aciona LED azul\nC - Aciona LED vermelho\nD - Aciona todos os LEDs\n# - Aciona Buzzer\nNumeros e * - Tocam músicas\n\n");
 
     while (1) {
         char key = scan_keypad();
