@@ -281,6 +281,214 @@ void tocarParabens() {
     sleep_ms(200);
 }
 
+void tocarCaiCaiBalao() {
+    // Sol Sol Mi Mi
+    playSol(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+
+    // Sol Sol Mi Mi
+    playSol(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+
+    // Sol Lá Sol
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+
+    // Fá Mi Ré
+    playFa(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+
+    // Ré Mi Fá
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+
+    // Ré Mi Fá
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+
+    // Sol Lá Sol
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+
+    // Fá Mi Ré
+    playFa(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+
+    // Dó
+    playDo(600); // Última nota com maior duração
+    sleep_ms(200);
+}
+
+void tocar9Sinfonia() {
+    // Primeira parte: E E F G G F E D C C D E E D D
+    playMi(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+
+    // Segunda parte: E E F G G F E D C C D E D C C
+    playMi(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+
+    // Terceira parte: D D E C D E F E C D E F E D C D G
+    playRe(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+
+    // Quarta parte: E E F G G F E D C C D E D C C
+    playMi(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+}
+
 void tocarBrilhaBrilha() {
     playDo(500); 
     sleep_ms(100);
@@ -747,8 +955,10 @@ void tocarNoiteFeliz(){
     playRe(400);
     sleep_ms(100);
     playSi(1000);
+
 }
 
+//Mario Bros theme song
 void tocarMarioBrosTheme() {
     // Parte inicial
     playMi(200); 
@@ -853,19 +1063,6 @@ void control_leds_and_buzzer(char key) {
         case '#':
             play_buzzer(BUZZER_PIN, 3350, 500); // Toca o buzzer a 3350 Hz por 500 ms
             break;
-        case '*':
-            gpio_put(GREEN_LED_PIN, 1);
-            sleep_ms(1000);
-            gpio_put(GREEN_LED_PIN, 0);
-
-            gpio_put(BLUE_LED_PIN, 1);
-            sleep_ms(1000);
-            gpio_put(BLUE_LED_PIN, 0);
-
-            gpio_put(RED_LED_PIN, 1);
-            sleep_ms(1000);
-            gpio_put(RED_LED_PIN, 0);
-            break;
         case '0': //Desligar os LEDs
             gpio_put(GREEN_LED_PIN, 0);
             gpio_put(BLUE_LED_PIN, 0);
@@ -878,6 +1075,7 @@ void control_leds_and_buzzer(char key) {
             tocarParabens();
             break;
         case '3':
+            tocarCaiCaiBalao();
             break;
         case '4':
             tocarBrilhaBrilha();
@@ -895,6 +1093,9 @@ void control_leds_and_buzzer(char key) {
             tocarPirulitoQueBateBate();
             break;
         case '9':
+            tocar9Sinfonia();
+            break;
+        case '*':
             tocarMarioBrosTheme();
             break;
         default:
@@ -915,7 +1116,7 @@ void printNomeMusica(char musica){
         printf("Tocando a música Parabéns pra você\n");
         break;
     case '3':
-        printf("Tocando a música\n");
+        printf("Tocando a música Cai Cai Balão\n");
         break;
     case '4':
         printf("Tocando a música Brilha Brilha Estrelinha\n");
@@ -933,6 +1134,9 @@ void printNomeMusica(char musica){
         printf("Tocando a música Pirulito que bate bate\n");
         break;
     case '9':
+        printf("Tocando a música 9ª Sinfonia\n");
+        break;
+    case '*':
         printf("Tocando a música tema do Mário Bros\n");
         break;
     default:
