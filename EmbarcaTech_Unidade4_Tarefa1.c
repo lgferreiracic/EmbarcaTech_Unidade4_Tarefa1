@@ -281,6 +281,83 @@ void tocarParabens() {
     sleep_ms(200);
 }
 
+void tocarBrilhaBrilha() {
+    playDo(500); 
+    sleep_ms(100);
+    playDo(500); 
+    sleep_ms(100);
+    playSol(500); 
+    sleep_ms(100);
+    playSol(500); 
+    sleep_ms(100);
+    playLa(500); 
+    sleep_ms(100);
+    playLa(500); 
+    sleep_ms(100);
+    playSol(500); 
+    sleep_ms(100);
+
+    playFa(500); 
+    sleep_ms(100);
+    playFa(500); 
+    sleep_ms(100);
+    playMi(500); 
+    sleep_ms(100);
+    playMi(500); 
+    sleep_ms(100);
+    playRe(500); 
+    sleep_ms(100);
+    playRe(500); 
+    sleep_ms(100);
+    playDo(500); 
+    sleep_ms(100);
+
+    playSol(500); 
+    sleep_ms(100);
+    playSol(500); 
+    sleep_ms(100);
+    playFa(500); 
+    sleep_ms(100);
+    playFa(500); 
+    sleep_ms(100);
+    playMi(500); 
+    sleep_ms(100);
+    playMi(500); 
+    sleep_ms(100);
+    playRe(500); 
+    sleep_ms(100);
+
+    playSol(500); 
+    sleep_ms(100);
+    playSol(500); 
+    sleep_ms(100);
+    playFa(500); 
+    sleep_ms(100);
+    playFa(500); 
+    sleep_ms(100);
+    playMi(500); 
+    sleep_ms(100);
+    playMi(500); 
+    sleep_ms(100);
+    playRe(500); 
+    sleep_ms(100);
+
+    playDo(500); 
+    sleep_ms(100);
+    playDo(500); 
+    sleep_ms(100);
+    playSol(500); 
+    sleep_ms(100);
+    playSol(500); 
+    sleep_ms(100);
+    playLa(500); 
+    sleep_ms(100);
+    playLa(500); 
+    sleep_ms(100);
+    playSol(500); 
+    sleep_ms(100);
+}
+
 void tocarJingleBells(){
     //Mi * 6
     for(int i = 0; i < 3; i++){
@@ -639,6 +716,7 @@ void control_leds_and_buzzer(char key) {
         case '3':
             break;
         case '4':
+            tocarBrilhaBrilha();
             break;
         case '5':
             tocarJingleBells();
