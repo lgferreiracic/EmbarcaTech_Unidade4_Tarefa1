@@ -644,110 +644,64 @@ void tocarPirulitoQueBateBate(){
     sleep_ms(400);
 }
 
-void tocarNoiteFeliz(){
-    playSol(900);
+//Mario Bros theme song
+void tocarMarioBrosTheme() {
+    // Parte inicial
+    playMi(200); 
     sleep_ms(100);
-    playLa(500);
+    playMi(200); 
     sleep_ms(100);
-    playSol(900);
     sleep_ms(100);
-    playMi(1500);
+    playMi(200);
     sleep_ms(100);
+    sleep_ms(100);
+    playDo(200);
+    sleep_ms(100);
+    playMi(200);
+    sleep_ms(100);
+    sleep_ms(100);
+    playSol(400); 
+    sleep_ms(300);
+    playDo(400);
+    sleep_ms(300);
 
-    playSol(900);
-    sleep_ms(100);
-    playLa(500);
-    sleep_ms(100);
-    playSol(900);
-    sleep_ms(100);
-    playMi(1500);
-    sleep_ms(100);
-
-    playRe(900);
-    sleep_ms(100);
-    playRe(700);
-    sleep_ms(100);
-    playSi(1000);
-    sleep_ms(100);
-
-    playDo(900);
-    sleep_ms(100);
-    playDo(700);
-    sleep_ms(100);
-    playSol(1000);
-    sleep_ms(100);
-
-    playLa(900);
-    sleep_ms(100);
-    playLa(700);
-    sleep_ms(100);
-    playDo(700);
-    sleep_ms(100);
-    playSi(400);
-    sleep_ms(100);
-    playLa(300);
-    sleep_ms(100);
-    playSol(300);
-    sleep_ms(100);
-    playLa(200);
-    sleep_ms(100);
-
-    playSol(800);
-    sleep_ms(100);
-    playMi(1000);
-    sleep_ms(100);
-
-    playLa(800);
-    sleep_ms(100);
-    playLa(500);
-    sleep_ms(100);
-    playDo(500);
-    sleep_ms(100);
-
-    playSi(200);
-    sleep_ms(100);
-    playLa(400);
-    sleep_ms(100);
-    playSol(600);
-    sleep_ms(100);
-
-    playLa(200);
-    sleep_ms(100);
-    playSol(400);
-    sleep_ms(100);
-    playMi(1000);
-    sleep_ms(100);
-
-    playRe(700);
-    sleep_ms(100);
-    playRe(300);
-    sleep_ms(100);
-    playFa(600);
-    sleep_ms(100);
-
-    playRe(200);
-    sleep_ms(100);
-    playSi(400);
-    sleep_ms(100);
-    playDo(1000);
-    sleep_ms(100);
-    playMi(1000);
-    sleep_ms(100);
-
-    playDo(600);
+    // Continuação
+    playDo(200);
     sleep_ms(100);
     playSol(200);
     sleep_ms(100);
-    playMi(400);
+    playMi(200);
     sleep_ms(100);
-    playSol(600);
+    playLa(200); 
     sleep_ms(100);
-    playFa(200);
+    playSi(200); 
     sleep_ms(100);
-    playRe(400);
+    playLa(200);
     sleep_ms(100);
-    playDo(1000);
+    playSol(200);
+    sleep_ms(100);
+    playMi(150);
+    sleep_ms(100);
+    playSol(150);
+    sleep_ms(100);
+    playLa(150);
+    sleep_ms(100);
+    playSi(200);
+    sleep_ms(100);
 
+    // Parte final
+    playFa(150); 
+    sleep_ms(100);
+    playSol(150);
+    sleep_ms(100);
+    playMi(200);
+    sleep_ms(100);
+    playDo(200);
+    sleep_ms(100);
+    playRe(200); 
+    sleep_ms(100);
+    playSi(200);
+    sleep_ms(100);
 }
 
 // Verifica qual tecla foi pressionada
@@ -828,7 +782,6 @@ void control_leds_and_buzzer(char key) {
             tocarJingleBells();
             break;
         case '6':
-            tocarNoiteFeliz();
             break;
         case '7':
             tocarBorboletinha();
@@ -837,6 +790,7 @@ void control_leds_and_buzzer(char key) {
             tocarPirulitoQueBateBate();
             break;
         case '9':
+            tocarMarioBrosTheme();
             break;
         default:
             gpio_put(GREEN_LED_PIN, 0);
@@ -874,7 +828,7 @@ void printNomeMusica(char musica){
         printf("Tocando a música Pirulito que bate bate\n");
         break;
     case '9':
-        printf("Tocando a música\n");
+        printf("Tocando a música Mario Bros\n");
         break;
     default:
         break;
