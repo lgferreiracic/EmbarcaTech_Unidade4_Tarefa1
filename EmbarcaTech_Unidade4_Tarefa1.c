@@ -644,7 +644,111 @@ void tocarPirulitoQueBateBate(){
     sleep_ms(400);
 }
 
-//Mario Bros theme song
+void tocarNoiteFeliz(){
+    playSol(900);
+    sleep_ms(100);
+    playLa(500);
+    sleep_ms(100);
+    playSol(900);
+    sleep_ms(100);
+    playMi(1500);
+    sleep_ms(100);
+
+    playSol(900);
+    sleep_ms(100);
+    playLa(500);
+    sleep_ms(100);
+    playSol(900);
+    sleep_ms(100);
+    playMi(1500);
+    sleep_ms(100);
+
+    playRe(900);
+    sleep_ms(100);
+    playRe(700);
+    sleep_ms(100);
+    playSi(1000);
+    sleep_ms(100);
+
+    playSi(900);
+    sleep_ms(100);
+    playSi(700);
+    sleep_ms(100);
+    playSol(1000);
+    sleep_ms(100);
+
+    playLa(900);
+    sleep_ms(100);
+    playLa(700);
+    sleep_ms(100);
+    playSi(700);
+    sleep_ms(100);
+    playSi(400);
+    sleep_ms(100);
+    playLa(300);
+    sleep_ms(100);
+    playSol(300);
+    sleep_ms(100);
+    playLa(200);
+    sleep_ms(100);
+
+    playSol(800);
+    sleep_ms(100);
+    playMi(1000);
+    sleep_ms(100);
+
+    playLa(800);
+    sleep_ms(100);
+    playLa(500);
+    sleep_ms(100);
+    playSi(500);
+    sleep_ms(100);
+
+    playSi(200);
+    sleep_ms(100);
+    playLa(400);
+    sleep_ms(100);
+    playSol(600);
+    sleep_ms(100);
+
+    playLa(200);
+    sleep_ms(100);
+    playSol(400);
+    sleep_ms(100);
+    playMi(1000);
+    sleep_ms(100);
+
+    playRe(700);
+    sleep_ms(100);
+    playRe(300);
+    sleep_ms(100);
+    playFa(600);
+    sleep_ms(100);
+
+    playRe(200);
+    sleep_ms(100);
+    playSi(400);
+    sleep_ms(100);
+    playSi(1000);
+    sleep_ms(100);
+    playMi(1000);
+    sleep_ms(100);
+
+    playSi(600);
+    sleep_ms(100);
+    playSol(200);
+    sleep_ms(100);
+    playMi(400);
+    sleep_ms(100);
+    playSol(600);
+    sleep_ms(100);
+    playFa(200);
+    sleep_ms(100);
+    playRe(400);
+    sleep_ms(100);
+    playSi(1000);
+}
+
 void tocarMarioBrosTheme() {
     // Parte inicial
     playMi(200); 
@@ -782,6 +886,7 @@ void control_leds_and_buzzer(char key) {
             tocarJingleBells();
             break;
         case '6':
+            tocarNoiteFeliz();
             break;
         case '7':
             tocarBorboletinha();
@@ -819,7 +924,7 @@ void printNomeMusica(char musica){
         printf("Tocando a música Jingle Bells\n");
         break;
     case '6':
-        printf("Tocando a música\n");
+        printf("Tocando a música Noite Feliz\n");
         break;
     case '7':
         printf("Tocando a música Borboletinha\n");
@@ -828,7 +933,7 @@ void printNomeMusica(char musica){
         printf("Tocando a música Pirulito que bate bate\n");
         break;
     case '9':
-        printf("Tocando a música Mario Bros\n");
+        printf("Tocando a música tema do Mário Bros\n");
         break;
     default:
         break;
