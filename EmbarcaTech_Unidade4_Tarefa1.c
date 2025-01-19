@@ -739,18 +739,56 @@ void control_leds_and_buzzer(char key) {
     }
 }
 
+void printNomeMusica(char musica){
+    switch (musica)
+    {
+    case '1':
+        printf("Tocando a música Do Ré Mi\n");
+        break;
+    case '2':
+        printf("Tocando a música Parabéns pra você\n");
+        break;
+    case '3':
+        printf("Tocando a música\n");
+        break;
+    case '4':
+        printf("Tocando a música Brilha Brilha Estrelinha\n");
+        break;
+    case '5':
+        printf("Tocando a música Jingle Bells\n");
+        break;
+    case '6':
+        printf("Tocando a música\n");
+        break;
+    case '7':
+        printf("Tocando a música Borboletinha\n");
+        break;
+    case '8':
+        printf("Tocando a música Pirulito que bate bate\n");
+        break;
+    case '9':
+        printf("Tocando a música\n");
+        break;
+    default:
+        break;
+    }
+}
+
 int main() {
     stdio_init_all();
     init_gpio();
     init_leds_and_buzzer();
 
     printf("Teclado Matricial 4x4 Controle de LEDs e Buzzer Iniciado.\n");
-    printf("A - Aciona LED verde\nB - Aciona LED azul\nC - Aciona LED vermelho\nD - Aciona todos os LEDs\n# - Aciona Buzzer\n\n");
+    printf("A - Aciona LED verde\nB - Aciona LED azul\nC - Aciona LED vermelho\nD - Aciona todos os LEDs\n# - Aciona Buzzer\nNumeros - Tocam músicas\n\n");
 
     while (1) {
         char key = scan_keypad();
         if (key != '\0') {
             printf("Tecla pressionada: %c\n", key);
+            if (key >= '0' && key <= '9') {
+            printNomeMusica(key);
+            }
             control_leds_and_buzzer(key);
         }
         sleep_ms(100);
