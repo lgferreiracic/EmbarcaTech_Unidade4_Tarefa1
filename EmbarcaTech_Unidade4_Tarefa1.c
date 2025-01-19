@@ -828,7 +828,7 @@ void printNomeMusica(char musica){
         printf("Tocando a música Pirulito que bate bate\n");
         break;
     case '9':
-        printf("Tocando a música\n");
+        printf("Tocando a música Mario Bros\n");
         break;
     default:
         break;
