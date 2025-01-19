@@ -281,6 +281,218 @@ void tocarParabens() {
     sleep_ms(200);
 }
 
+void tocarJingleBells(){
+    //Mi * 6
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(200);
+    }
+    sleep_ms(200);
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(200);
+    }
+    sleep_ms(200);
+
+    //Mi-Sol-Do-Re-Mi
+    playMi(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(400);
+
+    //Fa-Fa-Fa-Fa
+    for(int i = 0; i < 4; i++){
+        playFa(300);
+        sleep_ms(100);
+    }
+    sleep_ms(200);
+
+    //Fa-Mi-Mi-Mi
+    playFa(300);
+    sleep_ms(200);
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(100);
+    }
+    sleep_ms(200);
+
+    //Mi-Re-Re-Mi-Re-Sol
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(400);
+
+    //Mi * 6
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(200);
+    }
+    sleep_ms(200);
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(200);
+    }
+    sleep_ms(200);
+
+    //Mi-Sol-Do-Re-Mi
+    playMi(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(400);
+
+    //Fa-Fa-Fa-Fa
+    for(int i = 0; i < 4; i++){
+        playFa(300);
+        sleep_ms(100);
+    }
+    sleep_ms(200);
+
+    //Fa-Mi-Mi-Mi
+    playFa(300);
+    sleep_ms(200);
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(100);
+    }
+    sleep_ms(200);
+
+    //Re-Re-Sol-Sol-Do
+    playSol(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(400);
+}
+
+void tocarBorboletinha(){
+    //Sol-La-Sol-Do-Do
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSi(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(400);
+
+    //Sol-La-Sol-Si-Si
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSi(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(400);
+
+    //Sol-La-La-La-Sol-Si-Si
+    playSol(300);
+    sleep_ms(200);
+    playLa(150);
+    sleep_ms(100);
+    playLa(150);
+    sleep_ms(100);
+    playLa(150);
+    sleep_ms(100);
+    playSol(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(400);
+
+    //Sol-La-Si-Do-Do
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(400);
+
+    //Sol-La-Sol-Do
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(400);
+
+    //Sol-La-Sol-Si
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(400);
+
+    //Sol-La-La-La-Sol-Si-Si
+    playSol(300);
+    sleep_ms(200);
+    playLa(150);
+    sleep_ms(100);
+    playLa(150);
+    sleep_ms(100);
+    playLa(150);
+    sleep_ms(100);
+    playSol(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(400);
+
+    //Sol-La-Si-Do-Sol-Do
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(400);
+}
+
 // Verifica qual tecla foi pressionada
 char scan_keypad() {
     for (int row = 0; row < ROWS; row++) {
@@ -350,10 +562,12 @@ void control_leds_and_buzzer(char key) {
         case '4':
             break;
         case '5':
+            tocarJingleBells();
             break;
         case '6':
             break;
         case '7':
+            tocarBorboletinha();
             break;
         case '8':
             break;
