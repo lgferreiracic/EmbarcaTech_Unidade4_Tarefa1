@@ -112,8 +112,6 @@ void playRe(uint duration_ms) {
     gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
 }
 
-<<<<<<< Updated upstream
-=======
 void playMi(uint duration_ms){
     gpio_put(RED_LED_PIN, 1); //Acende LED vermelho
     play_buzzer(BUZZER_PIN,MI,duration_ms);
@@ -490,7 +488,6 @@ void tocar9Sinfonia() {
     playDo(300);
     sleep_ms(200);
 }
-
 
 void tocarBrilhaBrilha() {
     playDo(500); 
@@ -881,9 +878,9 @@ void tocarNoiteFeliz(){
     playSi(1000);
     sleep_ms(100);
 
-    playDo(900);
+    playSi(900);
     sleep_ms(100);
-    playDo(700);
+    playSi(700);
     sleep_ms(100);
     playSol(1000);
     sleep_ms(100);
@@ -892,7 +889,7 @@ void tocarNoiteFeliz(){
     sleep_ms(100);
     playLa(700);
     sleep_ms(100);
-    playDo(700);
+    playSi(700);
     sleep_ms(100);
     playSi(400);
     sleep_ms(100);
@@ -912,7 +909,7 @@ void tocarNoiteFeliz(){
     sleep_ms(100);
     playLa(500);
     sleep_ms(100);
-    playDo(500);
+    playSi(500);
     sleep_ms(100);
 
     playSi(200);
@@ -940,12 +937,12 @@ void tocarNoiteFeliz(){
     sleep_ms(100);
     playSi(400);
     sleep_ms(100);
-    playDo(1000);
+    playSi(1000);
     sleep_ms(100);
     playMi(1000);
     sleep_ms(100);
 
-    playDo(600);
+    playSi(600);
     sleep_ms(100);
     playSol(200);
     sleep_ms(100);
@@ -957,11 +954,70 @@ void tocarNoiteFeliz(){
     sleep_ms(100);
     playRe(400);
     sleep_ms(100);
-    playDo(1000);
+    playSi(1000);
 
 }
 
->>>>>>> Stashed changes
+//Mario Bros theme song
+void tocarMarioBrosTheme() {
+    // Parte inicial
+    playMi(200); 
+    sleep_ms(100);
+    playMi(200); 
+    sleep_ms(100);
+    sleep_ms(100);
+    playMi(200);
+    sleep_ms(100);
+    sleep_ms(100);
+    playDo(200);
+    sleep_ms(100);
+    playMi(200);
+    sleep_ms(100);
+    sleep_ms(100);
+    playSol(400); 
+    sleep_ms(300);
+    playDo(400);
+    sleep_ms(300);
+
+    // Continuação
+    playDo(200);
+    sleep_ms(100);
+    playSol(200);
+    sleep_ms(100);
+    playMi(200);
+    sleep_ms(100);
+    playLa(200); 
+    sleep_ms(100);
+    playSi(200); 
+    sleep_ms(100);
+    playLa(200);
+    sleep_ms(100);
+    playSol(200);
+    sleep_ms(100);
+    playMi(150);
+    sleep_ms(100);
+    playSol(150);
+    sleep_ms(100);
+    playLa(150);
+    sleep_ms(100);
+    playSi(200);
+    sleep_ms(100);
+
+    // Parte final
+    playFa(150); 
+    sleep_ms(100);
+    playSol(150);
+    sleep_ms(100);
+    playMi(200);
+    sleep_ms(100);
+    playDo(200);
+    sleep_ms(100);
+    playRe(200); 
+    sleep_ms(100);
+    playSi(200);
+    sleep_ms(100);
+}
+
 // Verifica qual tecla foi pressionada
 char scan_keypad() {
     for (int row = 0; row < ROWS; row++) {
@@ -1007,21 +1063,6 @@ void control_leds_and_buzzer(char key) {
         case '#':
             play_buzzer(BUZZER_PIN, 3350, 500); // Toca o buzzer a 3350 Hz por 500 ms
             break;
-        case '*':
-            gpio_put(GREEN_LED_PIN, 1);
-            sleep_ms(1000);
-            gpio_put(GREEN_LED_PIN, 0);
-
-            gpio_put(BLUE_LED_PIN, 1);
-            sleep_ms(1000);
-            gpio_put(BLUE_LED_PIN, 0);
-
-            gpio_put(RED_LED_PIN, 1);
-            sleep_ms(1000);
-            gpio_put(RED_LED_PIN, 0);
-            break;
-<<<<<<< Updated upstream
-=======
         case '0': //Desligar os LEDs
             gpio_put(GREEN_LED_PIN, 0);
             gpio_put(BLUE_LED_PIN, 0);
@@ -1054,12 +1095,52 @@ void control_leds_and_buzzer(char key) {
         case '9':
             tocar9Sinfonia();
             break;
->>>>>>> Stashed changes
+        case '*':
+            tocarMarioBrosTheme();
+            break;
         default:
             gpio_put(GREEN_LED_PIN, 0);
             gpio_put(BLUE_LED_PIN, 0);
             gpio_put(RED_LED_PIN, 0);
             break;
+    }
+}
+
+void printNomeMusica(char musica){
+    switch (musica)
+    {
+    case '1':
+        printf("Tocando a música Do Ré Mi\n");
+        break;
+    case '2':
+        printf("Tocando a música Parabéns pra você\n");
+        break;
+    case '3':
+        printf("Tocando a música Cai Cai Balão\n");
+        break;
+    case '4':
+        printf("Tocando a música Brilha Brilha Estrelinha\n");
+        break;
+    case '5':
+        printf("Tocando a música Jingle Bells\n");
+        break;
+    case '6':
+        printf("Tocando a música Noite Feliz\n");
+        break;
+    case '7':
+        printf("Tocando a música Borboletinha\n");
+        break;
+    case '8':
+        printf("Tocando a música Pirulito que bate bate\n");
+        break;
+    case '9':
+        printf("Tocando a música 9ª Sinfonia\n");
+        break;
+    case '*':
+        printf("Tocando a música tema do Mário Bros\n");
+        break;
+    default:
+        break;
     }
 }
 
@@ -1069,16 +1150,19 @@ int main() {
     init_leds_and_buzzer();
 
     printf("Teclado Matricial 4x4 Controle de LEDs e Buzzer Iniciado.\n");
-    printf("A - Aciona LED verde\nB - Aciona LED azul\nC - Aciona LED vermelho\nD - Aciona todos os LEDs\n# - Aciona Buzzer\n\n");
+    printf("A - Aciona LED verde\nB - Aciona LED azul\nC - Aciona LED vermelho\nD - Aciona todos os LEDs\n# - Aciona Buzzer\nNumeros - Tocam músicas\n\n");
 
     while (1) {
         char key = scan_keypad();
         if (key != '\0') {
             printf("Tecla pressionada: %c\n", key);
+            if (key >= '0' && key <= '9') {
+            printNomeMusica(key);
+            }
             control_leds_and_buzzer(key);
         }
         sleep_ms(100);
     }
 
-    return 0;
+    return 0;
 }
