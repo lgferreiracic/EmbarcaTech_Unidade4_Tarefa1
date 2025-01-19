@@ -747,10 +747,8 @@ void tocarNoiteFeliz(){
     playRe(400);
     sleep_ms(100);
     playSi(1000);
-
 }
 
-//Mario Bros theme song
 void tocarMarioBrosTheme() {
     // Parte inicial
     playMi(200); 
