@@ -84,11 +84,11 @@ Clique na imagem
 
 ## Vídeo da Solução
 
-Assista ao vídeo ensaio que demonstra a solução trabalhada e os resultados obtidos nos experimentos:
+Clique na imagem abaixo para assitir ao vídeo que demonstra a solução trabalhada e os resultados obtidos nos experimentos:
 
 <p align="center">
-  <a href="https://www.dropbox.com/scl/fi/va5dp18ahzarjyd6z8boh/2025-01-09-16-29-53.mkv?rlkey=j93icbgjf3m080d1tyde33fxz&dl=0">
-    <img src="thumb-video.png" alt="Vídeo da Solução" width="300">
+  <a href="https://www.dropbox.com/scl/fi/3qmhjbfh0x3ziw94p5vzt/Subgrupo-1-Tarefa-1.mp4?rlkey=pnm5omn14cqto1ld638aucsw3&st=vekdljkh&dl=0">
+    <img src="Video.png" alt="Vídeo Subgrupo1" width="900">
   </a>
 </p>
 
