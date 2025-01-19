@@ -96,6 +96,7 @@ void play_buzzer(uint pin, uint frequency, uint duration_ms) {
     pwm_set_gpio_level(pin, 32768);           
     sleep_ms(duration_ms);                   
     pwm_set_gpio_level(pin, 0);              
+<<<<<<< HEAD
 }
 
 // Função para tocar a nota Dó
@@ -105,6 +106,17 @@ void playDo(uint duration_ms) {
     gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
 }
 
+=======
+}
+
+// Função para tocar a nota Dó
+void playDo(uint duration_ms) {
+    gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
+    play_buzzer(BUZZER_PIN, DO, duration_ms);
+    gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
+}
+
+>>>>>>> 91588399f16c07432d7fd74cb0df22fe4427e9d8
 // Função para tocar a nota Ré
 void playRe(uint duration_ms) {
     gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
@@ -124,6 +136,151 @@ void playFa(uint duration_ms){
     play_buzzer(BUZZER_PIN,FA,duration_ms);
     gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
     gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
+<<<<<<< HEAD
+}
+
+void playSol(uint duration_ms) {
+    gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
+    gpio_put(RED_LED_PIN, 1); //Acende LED vermelho
+    play_buzzer(BUZZER_PIN, SOL, duration_ms);
+    gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
+    gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
+}
+
+void playLa(uint duration_ms) {
+    gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
+    gpio_put(RED_LED_PIN, 1); //Acende LED vermelho
+    play_buzzer(BUZZER_PIN, LA, duration_ms);
+    gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
+    gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
+}
+
+void playSi(uint duration_ms) {
+    gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
+    gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
+    gpio_put(RED_LED_PIN, 1); //Acende LED vermelho
+    play_buzzer(BUZZER_PIN, SI, duration_ms);
+    gpio_put(GREEN_LED_PIN, 0); // Apaga LED verde
+    gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
+    gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
+}
+
+void tocarDoReMi(){
+    //Dó-Ré-Mi-Fá
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+
+    //Fá-Fá
+    playFa(200);
+    sleep_ms(300);
+    playFa(200);
+    sleep_ms(300);
+
+    //Dó-Ré-Dó-Ré
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+
+    //Ré-Ré
+    playRe(200);
+    sleep_ms(300);
+    playRe(200);
+    sleep_ms(300);
+
+
+    //Dó-Sol-Fa-Mi
+    playDo(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+
+    //Mi-Mi
+    playMi(200);
+    sleep_ms(300);
+    playMi(200);
+    sleep_ms(300);
+
+    //Dó-Ré-Mi-Fá
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+
+    //Fá-Fá
+    playFa(200);
+    sleep_ms(300);
+    playFa(200);
+    sleep_ms(300);
+}
+
+void tocarParabens() {
+    //DO-DO-RE-DO-SOL-FA-FA
+    playDo(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+
+    //DO-DO-RE-DO-SOL-FA
+    playDo(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+
+    //LA-LA-DO-LA-FA-MI-RE
+    playLa(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+
+    //SI-SI-LA-FA-SOL-FA
+=======
 }
 
 void playSol(uint duration_ms) {
@@ -281,6 +438,224 @@ void tocarParabens() {
     sleep_ms(200);
 }
 
+void tocarJingleBells(){
+    //Mi * 6
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(200);
+    }
+    sleep_ms(200);
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(200);
+    }
+    sleep_ms(200);
+
+    //Mi-Sol-Do-Re-Mi
+    playMi(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(400);
+
+    //Fa-Fa-Fa-Fa
+    for(int i = 0; i < 4; i++){
+        playFa(300);
+        sleep_ms(100);
+    }
+    sleep_ms(200);
+
+    //Fa-Mi-Mi-Mi
+    playFa(300);
+    sleep_ms(200);
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(100);
+    }
+    sleep_ms(200);
+
+    //Mi-Re-Re-Mi-Re-Sol
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(400);
+
+    //Mi * 6
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(200);
+    }
+    sleep_ms(200);
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(200);
+    }
+    sleep_ms(200);
+
+    //Mi-Sol-Do-Re-Mi
+    playMi(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playMi(300);
+    sleep_ms(400);
+
+    //Fa-Fa-Fa-Fa
+    for(int i = 0; i < 4; i++){
+        playFa(300);
+        sleep_ms(100);
+    }
+    sleep_ms(200);
+
+    //Fa-Mi-Mi-Mi
+    playFa(300);
+    sleep_ms(200);
+    for(int i = 0; i < 3; i++){
+        playMi(300);
+        sleep_ms(100);
+    }
+    sleep_ms(200);
+
+    //Re-Re-Sol-Sol-Do
+    playSol(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playRe(300);
+    sleep_ms(200);
+    playDo(300);
+    sleep_ms(400);
+}
+
+void tocarBorboletinha(){
+    //Sol-La-Sol-Do-Do
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSi(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(400);
+
+    //Sol-La-Sol-Si-Si
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSi(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(400);
+
+    //Sol-La-La-La-Sol-Si-Si
+    playSol(300);
+    sleep_ms(200);
+    playLa(150);
+    sleep_ms(100);
+    playLa(150);
+    sleep_ms(100);
+    playLa(150);
+    sleep_ms(100);
+    playSol(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(400);
+
+    //Sol-La-Si-Do-Do
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(400);
+
+    //Sol-La-Sol-Do
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(400);
+
+    //Sol-La-Sol-Si
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(400);
+
+    //Sol-La-La-La-Sol-Si-Si
+    playSol(300);
+    sleep_ms(200);
+    playLa(150);
+    sleep_ms(100);
+    playLa(150);
+    sleep_ms(100);
+    playLa(150);
+    sleep_ms(100);
+    playSol(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(100);
+    playSi(150);
+    sleep_ms(400);
+
+    //Sol-La-Si-Do-Sol-Do
+    playSol(300);
+    sleep_ms(200);
+    playLa(300);
+    sleep_ms(200);
+>>>>>>> 91588399f16c07432d7fd74cb0df22fe4427e9d8
+    playSi(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(200);
+<<<<<<< HEAD
+    playLa(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+    playSol(300);
+    sleep_ms(200);
+    playFa(300);
+    sleep_ms(200);
+}
+
 void tocarBrilhaBrilha() {
     playDo(500); 
     sleep_ms(100);
@@ -359,6 +734,14 @@ void tocarBrilhaBrilha() {
 }
 
 
+=======
+    playSol(300);
+    sleep_ms(200);
+    playSi(300);
+    sleep_ms(400);
+}
+
+>>>>>>> 91588399f16c07432d7fd74cb0df22fe4427e9d8
 // Verifica qual tecla foi pressionada
 char scan_keypad() {
     for (int row = 0; row < ROWS; row++) {
@@ -426,13 +809,23 @@ void control_leds_and_buzzer(char key) {
         case '3':
             break;
         case '4':
+<<<<<<< HEAD
             tocarBrilhaBrilha();
             break;
         case '5':
+=======
+            break;
+        case '5':
+            tocarJingleBells();
+>>>>>>> 91588399f16c07432d7fd74cb0df22fe4427e9d8
             break;
         case '6':
             break;
         case '7':
+<<<<<<< HEAD
+=======
+            tocarBorboletinha();
+>>>>>>> 91588399f16c07432d7fd74cb0df22fe4427e9d8
             break;
         case '8':
             break;
