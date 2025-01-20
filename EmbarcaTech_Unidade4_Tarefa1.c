@@ -112,12 +112,14 @@ void playRe(uint duration_ms) {
     gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
 }
 
+// Função para tocar a nota Mi
 void playMi(uint duration_ms){
     gpio_put(RED_LED_PIN, 1); //Acende LED vermelho
     play_buzzer(BUZZER_PIN,MI,duration_ms);
     gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
 }
 
+// Função para tocar a nota Fá
 void playFa(uint duration_ms){
     gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
     gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
@@ -126,6 +128,7 @@ void playFa(uint duration_ms){
     gpio_put(BLUE_LED_PIN, 0); // Apaga LED azul
 }
 
+// Função para tocar a nota Sol
 void playSol(uint duration_ms) {
     gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
     gpio_put(RED_LED_PIN, 1); //Acende LED vermelho
@@ -134,6 +137,7 @@ void playSol(uint duration_ms) {
     gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
 }
 
+// Função para tocar a nota Lá
 void playLa(uint duration_ms) {
     gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
     gpio_put(RED_LED_PIN, 1); //Acende LED vermelho
@@ -142,6 +146,7 @@ void playLa(uint duration_ms) {
     gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
 }
 
+// Função para tocar a nota Si
 void playSi(uint duration_ms) {
     gpio_put(GREEN_LED_PIN, 1); // Acende LED verde
     gpio_put(BLUE_LED_PIN, 1); // Acende LED azul
@@ -152,6 +157,7 @@ void playSi(uint duration_ms) {
     gpio_put(RED_LED_PIN, 0); //Apaga LED vermelho
 }
 
+// Função para tocar a música Do Ré Mi
 void tocarDoReMi(){
     //Dó-Ré-Mi-Fá
     playDo(300);
@@ -219,6 +225,7 @@ void tocarDoReMi(){
     sleep_ms(300);
 }
 
+// Função para tocar a música Parabéns pra você
 void tocarParabens() {
     //DO-DO-RE-DO-SOL-FA-FA
     playDo(300);
@@ -281,6 +288,7 @@ void tocarParabens() {
     sleep_ms(200);
 }
 
+// Função para tocar a música Cai Cai Balão
 void tocarCaiCaiBalao() {
     // Sol Sol Mi Mi
     playSol(300);
@@ -355,6 +363,7 @@ void tocarCaiCaiBalao() {
     sleep_ms(200);
 }
 
+// Função para tocar a música 9ª Sinfonia
 void tocar9Sinfonia() {
     // Primeira parte: E E F G G F E D C C D E E D D
     playMi(300);
@@ -489,6 +498,7 @@ void tocar9Sinfonia() {
     sleep_ms(200);
 }
 
+// Função para tocar a música Brilha Brilha Estrelinha
 void tocarBrilhaBrilha() {
     playDo(500); 
     sleep_ms(100);
@@ -566,6 +576,7 @@ void tocarBrilhaBrilha() {
     sleep_ms(100);
 }
 
+// Função para tocar a música Jingle Bells
 void tocarJingleBells(){
     //Mi * 6
     for(int i = 0; i < 3; i++){
@@ -674,6 +685,7 @@ void tocarJingleBells(){
     sleep_ms(400);
 }
 
+// Função para tocar a música Borboletinha
 void tocarBorboletinha(){
     //Sol-La-Sol-Do-Do
     playSol(300);
@@ -778,6 +790,7 @@ void tocarBorboletinha(){
     sleep_ms(400);
 }
 
+// Função para tocar a música Pirulito que bate bate
 void tocarPirulitoQueBateBate(){
     //Fa-Sol-La-La-La-Sol-Fa-Si-Si
     playFa(200);
@@ -852,6 +865,7 @@ void tocarPirulitoQueBateBate(){
     sleep_ms(400);
 }
 
+// Função para tocar a música Noite Feliz
 void tocarNoiteFeliz(){
     playSol(900);
     sleep_ms(100);
@@ -958,7 +972,7 @@ void tocarNoiteFeliz(){
 
 }
 
-//Mario Bros theme song
+// Função para tocar o tema do Mario Bros
 void tocarMarioBrosTheme() {
     // Parte inicial
     playMi(200); 
@@ -1040,27 +1054,27 @@ char scan_keypad() {
 // Função para controlar LEDs e Buzzer com base na tecla pressionada
 void control_leds_and_buzzer(char key) {
     switch (key) {
-        case 'A':
+        case 'A': // Aciona LED verde
             gpio_put(GREEN_LED_PIN, 1);
             gpio_put(BLUE_LED_PIN, 0);
             gpio_put(RED_LED_PIN, 0);
             break;
-        case 'B':
+        case 'B': // Aciona LED azul
             gpio_put(GREEN_LED_PIN, 0);
             gpio_put(BLUE_LED_PIN, 1);
             gpio_put(RED_LED_PIN, 0);
             break;
-        case 'C':
+        case 'C': // Aciona LED vermelho
             gpio_put(GREEN_LED_PIN, 0);
             gpio_put(BLUE_LED_PIN, 0);
             gpio_put(RED_LED_PIN, 1);
             break;
-        case 'D':
+        case 'D': // Aciona todos os LEDs
             gpio_put(GREEN_LED_PIN, 1);
             gpio_put(BLUE_LED_PIN, 1);
             gpio_put(RED_LED_PIN, 1);
             break;
-        case '#':
+        case '#': // Aciona o buzzer
             play_buzzer(BUZZER_PIN, 3350, 2000); // Toca o buzzer a 3350 Hz por 2000 ms
             break;
         case '0': //Desligar os LEDs
@@ -1098,7 +1112,7 @@ void control_leds_and_buzzer(char key) {
         case '*':
             tocarMarioBrosTheme();
             break;
-        default:
+        default: // Desliga todos os LEDs
             gpio_put(GREEN_LED_PIN, 0);
             gpio_put(BLUE_LED_PIN, 0);
             gpio_put(RED_LED_PIN, 0);
@@ -1106,6 +1120,7 @@ void control_leds_and_buzzer(char key) {
     }
 }
 
+// Função para imprimir o nome da música tocada
 void printNomeMusica(char musica){
     switch (musica)
     {
