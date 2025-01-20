@@ -878,9 +878,9 @@ void tocarNoiteFeliz(){
     playSi(1000);
     sleep_ms(100);
 
-    playSi(900);
+    playDo(900);
     sleep_ms(100);
-    playSi(700);
+    playDo(700);
     sleep_ms(100);
     playSol(1000);
     sleep_ms(100);
@@ -889,7 +889,7 @@ void tocarNoiteFeliz(){
     sleep_ms(100);
     playLa(700);
     sleep_ms(100);
-    playSi(700);
+    playDo(700);
     sleep_ms(100);
     playSi(400);
     sleep_ms(100);
@@ -909,7 +909,7 @@ void tocarNoiteFeliz(){
     sleep_ms(100);
     playLa(500);
     sleep_ms(100);
-    playSi(500);
+    playDo(500);
     sleep_ms(100);
 
     playSi(200);
@@ -937,12 +937,12 @@ void tocarNoiteFeliz(){
     sleep_ms(100);
     playSi(400);
     sleep_ms(100);
-    playSi(1000);
+    playDo(1000);
     sleep_ms(100);
     playMi(1000);
     sleep_ms(100);
 
-    playSi(600);
+    playDo(600);
     sleep_ms(100);
     playSol(200);
     sleep_ms(100);
@@ -954,7 +954,7 @@ void tocarNoiteFeliz(){
     sleep_ms(100);
     playRe(400);
     sleep_ms(100);
-    playSi(1000);
+    playDo(1000);
 
 }
 
